@@ -1,2 +1,4 @@
 /dist/
 gendiff/scripts/__pycache__/
+gendiff/__pycache__/
+gendiff/tests/__pycache__/

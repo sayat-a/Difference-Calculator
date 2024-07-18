@@ -19,3 +19,7 @@ selfcheck:
 
 
 check: selfcheck test lint
+
+
+install:
+	poetry install

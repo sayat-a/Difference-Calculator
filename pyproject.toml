@@ -4,9 +4,17 @@ version = "0.1.0"
 description = ""
 authors = ["Sayat Aubakirov <sayat_aubakirov@mail.ru>"]
 readme = "README.md"
+packages = [
+  { include = "gendiff" },
+]
+
 
 [tool.poetry.dependencies]
 python = ">=3.8"
+
+
+[tool.poetry.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
 
 
 [build-system]

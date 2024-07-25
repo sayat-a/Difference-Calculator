@@ -9,3 +9,6 @@
 
 ### Comparing JSON files (flat):
 [![asciicast](https://asciinema.org/a/KeWjUMWZ6owqC3nBuxwjAAaXF.svg)](https://asciinema.org/a/KeWjUMWZ6owqC3nBuxwjAAaXF)
+
+### Comparing YAML files (flat):
+[![asciicast](https://asciinema.org/a/vpLcLIMAFm4IIJkjM5QsqI5ii.svg)](https://asciinema.org/a/vpLcLIMAFm4IIJkjM5QsqI5ii)

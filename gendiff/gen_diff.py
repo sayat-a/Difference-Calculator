@@ -1,11 +1,9 @@
-import json
+from gendiff import parse
 
 
 def generate_diff(file1_path, file2_path):
-    with open(file1_path, 'r', encoding='utf-8') as file1:
-        data1 = json.load(file1)
-    with open(file2_path, 'r', encoding='utf-8') as file2:
-        data2 = json.load(file2)
+    data1 = parse.load_file(file1_path)
+    data2 = parse.load_file(file2_path)
     all_keys = sorted(set(data1.keys()).union(set(data2.keys())))
     diff_lines = []
     for key in all_keys:

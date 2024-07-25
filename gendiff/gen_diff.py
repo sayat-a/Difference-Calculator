@@ -1,9 +1,13 @@
-from gendiff import parse
+from . import parse
 
 
 def generate_diff(file1_path, file2_path):
     data1 = parse.load_file(file1_path)
     data2 = parse.load_file(file2_path)
+    if data1 is None:
+        data1 = {}
+    if data2 is None:
+        data2 = {}
     all_keys = sorted(set(data1.keys()).union(set(data2.keys())))
     diff_lines = []
     for key in all_keys:

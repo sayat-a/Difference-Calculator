@@ -11,5 +11,5 @@ def load_file(file_path):
     with open(file_path) as file:
         if extension == 'json':
             return json.load(file)
-        elif extension == 'yaml' or extension == 'yml':
+        elif extension == 'yaml' or extension == '.yml':
             return yaml.safe_load(file)

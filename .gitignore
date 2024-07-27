@@ -4,3 +4,4 @@ gendiff/__pycache__/
 tests/__pycache__/
 .venv/
 .coverage
+gendiff/formatters/__pycache__/

@@ -19,5 +19,5 @@ def main():
         args.first_file, args.second_file, formatter=args.format))
 
 
-if __name__ == '__main__':  
+if __name__ == '__main__':
     main()

@@ -29,7 +29,7 @@ def build_diff(data1, data2):
 def format_stylish(diff, depth=1):
     indent_size = 4
     deep_indent_size = indent_size * depth
-    current_indent = ' ' * deep_indent_size
+    current_indent = ' ' * (deep_indent_size - 2)
     bracket_indent = ' ' * (deep_indent_size - indent_size)
     lines = []
     for key, value in diff.items():
@@ -80,37 +80,6 @@ def format_value(value, depth):
         return f"{{\n{result}\n{bracket_indent}}}"
     else:
         return json.dumps(value, ensure_ascii=False).replace('"', '')
-
-
-def format_diff(diff, depth=1):
-    indent = '    ' * depth
-    diff_lines = []
-    for key, info in sorted(diff.items()):
-        status = info['status']
-        if status == 'removed':
-            diff_lines.append(
-                f"{indent}  - {key}: {json.dumps(info['value'])}"
-            )
-        elif status == 'added':
-            diff_lines.append(
-                f"{indent}  + {key}: {json.dumps(info['value'])}"
-            )
-        elif status == 'changed':
-            diff_lines.append(
-                f"{indent}  - {key}: {json.dumps(info['old_value'])}"
-            )
-            diff_lines.append(
-                f"{indent}  + {key}: {json.dumps(info['new_value'])}"
-            )
-        elif status == 'nested':
-            nested_diff = format_diff(info['children'], depth + 1)
-            diff_lines.append(f"{indent}    {key}: {nested_diff}")
-        else:  # 'unchanged'
-            diff_lines.append(
-                f"{indent}    {key}: {json.dumps(info['value'])}"
-            )
-    return "{\n" + "\n".join(
-        diff_lines).replace('"', '') + f"\n{'    ' * (depth - 1)}}}"
 
 
 def generate_diff(file1_path, file2_path, formatter='stylish'):

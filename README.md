@@ -12,3 +12,6 @@
 
 ### Comparing YAML files (flat):
 [![asciicast](https://asciinema.org/a/vpLcLIMAFm4IIJkjM5QsqI5ii.svg)](https://asciinema.org/a/vpLcLIMAFm4IIJkjM5QsqI5ii)
+
+### Comparing JSON files in format PLAIN:
+[![asciicast](https://asciinema.org/a/AyZS8iZcf8dUVBxvZOnBXkstV.svg)](https://asciinema.org/a/AyZS8iZcf8dUVBxvZOnBXkstV)

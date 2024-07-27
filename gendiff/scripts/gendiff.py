@@ -15,10 +15,9 @@ def main():
         help='set format of output (default: stylish)'
     )
     args = parser.parse_args()
-    print(args.first_file, args.second_file)
     print(generate_diff(
         args.first_file, args.second_file, formatter=args.format))
 
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
     main()

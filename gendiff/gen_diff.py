@@ -14,13 +14,13 @@ def build_diff(data1, data2):
             diff[key] = {
                 'status': 'nested',
                 'children': build_diff(data1[key], data2[key])
-                }
+            }
         elif data1[key] != data2[key]:
             diff[key] = {
                 'status': 'changed',
                 'old_value': data1[key],
                 'new_value': data2[key]
-                }
+            }
         else:
             diff[key] = {'status': 'unchanged', 'value': data1[key]}
     return diff
@@ -38,21 +38,21 @@ def format_stylish(diff, depth=1):
             lines.append(
                 f"{current_indent}+ {key}: "
                 f"{format_value(value['value'], depth + 1)}"
-                )
+            )
         elif status == 'removed':
             lines.append(
                 f"{current_indent}- {key}: "
                 f"{format_value(value['value'], depth + 1)}"
-                )
+            )
         elif status == 'changed':
             lines.append(
                 f"{current_indent}- {key}: "
                 f"{format_value(value['old_value'], depth + 1)}"
-                )
+            )
             lines.append(
                 f"{current_indent}+ {key}: "
                 f"{format_value(value['new_value'], depth + 1)}"
-                )
+            )
         elif status == 'nested':
             nested_lines = format_stylish(value['children'], depth + 1)
             lines.append(f"{current_indent}  {key}: {nested_lines}")
@@ -60,7 +60,7 @@ def format_stylish(diff, depth=1):
             lines.append(
                 f"{current_indent}  {key}: "
                 f"{format_value(value['value'], depth + 1)}"
-                )
+            )
     result = "\n".join(lines)
     return f"{{\n{result}\n{bracket_indent}}}"
 
@@ -71,12 +71,11 @@ def format_value(value, depth):
         deep_indent_size = indent_size * depth
         current_indent = ' ' * deep_indent_size
         bracket_indent = ' ' * (deep_indent_size - indent_size)
-
         lines = []
         for key, val in value.items():
             lines.append(
                 f"{current_indent}{key}: {format_value(val, depth + 1)}"
-                )
+            )
         result = "\n".join(lines)
         return f"{{\n{result}\n{bracket_indent}}}"
     else:
@@ -91,25 +90,25 @@ def format_diff(diff, depth=1):
         if status == 'removed':
             diff_lines.append(
                 f"{indent}  - {key}: {json.dumps(info['value'])}"
-                )
+            )
         elif status == 'added':
             diff_lines.append(
                 f"{indent}  + {key}: {json.dumps(info['value'])}"
-                )
+            )
         elif status == 'changed':
             diff_lines.append(
                 f"{indent}  - {key}: {json.dumps(info['old_value'])}"
-                )
+            )
             diff_lines.append(
                 f"{indent}  + {key}: {json.dumps(info['new_value'])}"
-                )
+            )
         elif status == 'nested':
             nested_diff = format_diff(info['children'], depth + 1)
             diff_lines.append(f"{indent}    {key}: {nested_diff}")
         else:  # 'unchanged'
             diff_lines.append(
                 f"{indent}    {key}: {json.dumps(info['value'])}"
-                )
+            )
     return "{\n" + "\n".join(
         diff_lines).replace('"', '') + f"\n{'    ' * (depth - 1)}}}"
 

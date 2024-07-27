@@ -7,11 +7,20 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/8086ba3588454f8b46db/test_coverage)](https://codeclimate.com/github/sayat-a/python-project-50/test_coverage)
 
-### Comparing JSON files (flat):
+### Comparing JSON files (flat file):
 [![asciicast](https://asciinema.org/a/KeWjUMWZ6owqC3nBuxwjAAaXF.svg)](https://asciinema.org/a/KeWjUMWZ6owqC3nBuxwjAAaXF)
 
-### Comparing YAML files (flat):
+### Comparing YAML files (flat file):
 [![asciicast](https://asciinema.org/a/vpLcLIMAFm4IIJkjM5QsqI5ii.svg)](https://asciinema.org/a/vpLcLIMAFm4IIJkjM5QsqI5ii)
 
-### Comparing JSON files in format PLAIN:
+### Comparing JSON files (nested file):
+[![asciicast](https://asciinema.org/a/DgKEgG9l6xx6nSu4wgaMCjeDR.svg)](https://asciinema.org/a/DgKEgG9l6xx6nSu4wgaMCjeDR)
+
+### Comparing YAML files (nested file):
+[![asciicast](https://asciinema.org/a/rXAMTJSnbvZ0KVmBYL7Uhy9JM.svg)](https://asciinema.org/a/rXAMTJSnbvZ0KVmBYL7Uhy9JM)
+
+### Comparing JSON files in --format PLAIN:
 [![asciicast](https://asciinema.org/a/AyZS8iZcf8dUVBxvZOnBXkstV.svg)](https://asciinema.org/a/AyZS8iZcf8dUVBxvZOnBXkstV)
+
+### Comparing JSON files in --format JSON:
+[![asciicast](https://asciinema.org/a/1G2MFtDcAybG6UL9UFPrSAnDi.svg)](https://asciinema.org/a/1G2MFtDcAybG6UL9UFPrSAnDi)

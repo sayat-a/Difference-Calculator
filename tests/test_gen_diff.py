@@ -32,6 +32,12 @@ from gendiff.gen_diff import generate_diff
             'tests/fixtures/nested_file2.json',
             'tests/fixtures/expected_result_plain_format.txt',
             'plain'
+        ),
+        (
+            'tests/fixtures/nested_file1.json',
+            'tests/fixtures/nested_file2.json',
+            'tests/fixtures/expected_result_json_format.json',
+            'json'
         )
     ]
 )

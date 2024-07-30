@@ -1,9 +1,32 @@
 def format_plain(diff):
+    '''
+    Formats a diff's dictionary into a plain format for a readable output.
+
+    Parameters:
+        diff (dict): The diff dictionary representing the differences between
+            two data dictionaries.
+
+    Returns:
+        str: A formatted string representing the differences in plain text
+            format.
+    '''
     result = walk(diff, '')
     return '\n'.join(result)
 
 
 def walk(node, path):
+    """
+    Additional function for 'format_plain' function
+    Recursively walks through the diff dictionary to build plain text output.
+
+    Parameters:
+        node (dict): The current node in the diff dictionary.
+        path (str): The current path of keys being processed.
+
+    Returns:
+        list: A list of formatted strings representing the diff for the current
+            node.
+    """
     lines = []
     for key in sorted(node.keys()):
         status_info = node[key]
@@ -14,6 +37,20 @@ def walk(node, path):
 
 
 def process_status(status, status_info, current_path):
+    """
+    Additional function for 'walk' function
+    Processes the status of a key in the diff dictionary and formats the
+        output.
+
+    Parameters:
+        status (str): The status of the key ('added', 'removed', 'changed',
+            'nested').
+        status_info (dict): Information about the key's status and values.
+        current_path (str): The current path of keys being processed.
+
+    Returns:
+        list: A list of formatted strings for the current status.
+    """
     if status == 'added':
         return [format_added(current_path, status_info['value'])]
     elif status == 'removed':

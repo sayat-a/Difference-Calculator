@@ -1,4 +1,15 @@
 def build_diff(data1, data2):
+    '''
+    Builds a difference representation between two data structures.
+
+    Parameters:
+        data1 (dict): The first data dictionary to compare.
+        data2 (dict): The second data dictionary to compare.
+
+    Returns:
+        dict: A dictionary representing the differences between data1 and
+            data2.
+    '''
     diff = {}
     all_keys = sorted(set(data1.keys()).union(set(data2.keys())))
     for key in all_keys:

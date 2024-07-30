@@ -6,8 +6,8 @@ import yaml
 def test_define_extension():
     file_path = 'tests/fixtures/file1.json'
     file_path2 = 'tests/fixtures/plain_yml_file1.yaml'
-    assert define_extension(file_path) == 'json'
-    assert define_extension(file_path2) == 'yaml'
+    assert define_extension(file_path) == '.json'
+    assert define_extension(file_path2) == '.yaml'
 
 
 def test_load_file():

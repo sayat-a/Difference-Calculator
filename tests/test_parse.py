@@ -12,12 +12,11 @@ def test_define_extension(file_path, expected_result):
     assert define_extension(file_path) == expected_result
 
 
-def test_load_file():
-    file_path = 'tests/fixtures/file1.json'
-    file_path2 = 'tests/fixtures/plain_yml_file1.yaml'
+@pytest.mark.parametrize("file_path, loader", [
+    ('tests/fixtures/file1.json', json.load),
+    ('tests/fixtures/plain_yml_file1.yaml', yaml.safe_load)
+])
+def test_load_file(file_path, loader):
     with open(file_path, 'r', encoding='utf-8') as file:
-        expected_result = json.load(file)
-        assert load_file(file_path) == expected_result
-    with open(file_path2, 'r', encoding='utf-8') as file2:
-        expected_result = yaml.safe_load(file2)
+        expected_result = loader(file)
         assert load_file(file_path) == expected_result
